@@ -1,0 +1,186 @@
+//
+// Copyright 2006 Sun Microsystems, Inc. All rights reserved.
+// Use is subject to license terms.
+//
+
+/* Copyright 2004 Sun Microsystems, Inc. All rights reserved.     */
+/* SUN PROPRIETARY/CONFIDENTIAL. Use is subject to license terms. */
+
+// Core server classes get all permissions by default
+grant codeBase "file:${com.sun.aas.installRoot}/lib/-" {
+	permission java.security.AllPermission;
+};
+
+// lockhart classes get all permissions by default
+grant codeBase "file:${com.sun.aas.webconsoleLib}/cc.jar" {
+        permission java.security.AllPermission;
+};
+
+// jato classes get all permissions by default
+grant codeBase "file:${com.sun.aas.jatoRoot}/jato.jar" {
+        permission java.security.AllPermission;
+};
+
+
+// iMQ classes get all permissions by default
+grant codeBase "file:${com.sun.aas.imqLib}/-" {
+	permission java.security.AllPermission;
+};
+
+// ANT classes get all permissions by default
+grant codeBase "file:${com.sun.aas.antLib}/-" {
+	permission java.security.AllPermission;
+};
+
+// Pointbase embedded server classes get all permissions by default
+grant codeBase "file:${com.sun.aas.pointbaseRoot}/lib/-" {
+	permission java.security.AllPermission;
+};
+
+// Derby driver classes get all permissions by default
+grant codeBase "file:${com.sun.aas.derbyRoot}/lib/-" {
+        permission java.security.AllPermission;
+};
+
+// Web Services classes get all permissions by default
+grant codeBase "file:${com.sun.aas.webServicesLib}/-" {
+	permission java.security.AllPermission;
+};
+
+// permissions for avkit classes
+grant codeBase "file:${j2ee.appverification.home}/lib/-" {
+    permission java.security.AllPermission;
+};
+
+
+
+// Basic set of required permissions granted to all remaining code
+grant {
+	permission java.lang.RuntimePermission  "loadLibrary.*";
+	permission java.lang.RuntimePermission  "queuePrintJob";
+	permission java.net.SocketPermission    "*", "connect";
+	permission java.io.FilePermission       "<<ALL FILES>>", "read,write";
+
+        // work-around for pointbase bug 4864405      
+        permission java.io.FilePermission "${com.sun.aas.instanceRoot}${/}lib${/}databases${/}-", "delete";
+        permission java.io.FilePermission "${java.io.tmpdir}${/}-", "delete";
+
+	permission java.util.PropertyPermission "*", "read";
+
+	permission java.lang.RuntimePermission	"modifyThreadGroup";
+};
+
+
+// Following grant block is only required by Connectors. If Connectors
+// are not in use the recommendation is to remove this grant.
+//grant {
+//        permission javax.security.auth.PrivateCredentialPermission "javax.resource.spi.security.PasswordCredential * \"*\"","read";
+//};
+
+// Following grant block is only required for Reflection. If Reflection
+// is not in use the recommendation is to remove this section.
+grant {
+	permission java.lang.RuntimePermission "accessDeclaredMembers";
+};
+
+// Permissions to invoke CORBA objects in server
+grant {
+    permission com.sun.enterprise.security.CORBAObjectPermission "*", "*";
+};
+
+keystore "file:///home/claudio/javaSoftware/sjsas8.2-pe/domains/domain1/config/jspwiki.jks";
+
+// JSPWiki itself needs some basic privileges in order to operate.
+// If you are running JSPWiki with a security manager, don't change these,
+// because it will totally b0rk the system.
+
+grant codeBase "file:///home/claudio/javaSoftware/sjsas8.2-pe/domains/domain1/applications/j2ee-modules/JSPWiki/-" {
+    permission javax.security.auth.AuthPermission "modifyPrincipals";
+    permission javax.security.auth.AuthPermission "createLoginContext.JSPWiki-container";
+    permission javax.security.auth.AuthPermission "createLoginContext.JSPWiki-custom";
+    permission java.security.SecurityPermission   "getDomainCombiner";
+    permission javax.security.auth.AuthPermission "getSubjectFromDomainCombiner";
+    permission java.io.FilePermission "file:///home/claudio/javaSoftware/sjsas8.2-pe/domains/domain1/applications/j2ee-modules/JSPWiki/WEB-INF/-", "read,write,delete";
+	//permission java.security.AllPermission;
+};
+
+grant codeBase "file:///home/claudio/javaSoftware/sjsas8.2-pe/domains/domain1/applications/j2ee-modules/JSPWiki/-" {
+    permission java.security.SecurityPermission   "getPolicy";
+    //permission java.security.SecurityPermission   "setPolicy";
+    permission java.util.PropertyPermission       "java.security.auth.login.config", "read";
+    permission java.util.PropertyPermission       "java.security.policy", "read";
+    permission javax.security.auth.AuthPermission "getLoginConfiguration";
+    //permission javax.security.auth.AuthPermission "setLoginConfiguration";
+};
+
+
+// The first policy block is extremely loose, and unsuited for public-facing wikis.
+// Anonymous users are allowed to view, create, edit and comment on all pages
+// (except group pages). Anonymous users can also register with the wiki; 
+// to edit their profile after registration, they must log in.
+//
+// Note: For Internet-facing wikis, you are strongly advised to remove the 
+// lines containing the "edit" and "createPages" permissions; this will make
+// the wiki read-only for anonymous users.
+
+grant signedBy "jspwiki", 
+  principal com.ecyrd.jspwiki.auth.authorize.Role "Anonymous" {
+    permission com.ecyrd.jspwiki.auth.permissions.PagePermission "*:*", "view";
+    //permission com.ecyrd.jspwiki.auth.permissions.PagePermission "*:*", "edit";
+    //permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "createPages";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "editPreferences";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "editProfile";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "login";
+};
+
+
+// This next policy block is also pretty loose. It allows users who claim to
+// be someone (via their cookie) to view, create, edit and comment on all pages
+// (except group pages). Anonymous users can also register with the wiki;
+// to edit their profile after registration, they must log in.
+
+grant signedBy "jspwiki",
+  principal com.ecyrd.jspwiki.auth.authorize.Role "Asserted" {
+    permission com.ecyrd.jspwiki.auth.permissions.PagePermission "*:*", "view";
+    //permission com.ecyrd.jspwiki.auth.permissions.PagePermission "*:*", "edit";
+    permission com.ecyrd.jspwiki.auth.permissions.GroupPermission "*:*", "view";
+    //permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "createPages";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "editPreferences";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "editProfile";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "login";
+};
+
+
+// Authenticated users can do most things: view, create, edit and 
+// comment on all pages; upload files to existing ones; create and edit
+// wiki groups; and rename existing pages. Authenticated users can register
+// with the wiki, edit their own profiles, and edit groups they create.
+
+grant signedBy "jspwiki", 
+  principal com.ecyrd.jspwiki.auth.authorize.Role "Authenticated" {
+    permission com.ecyrd.jspwiki.auth.permissions.PagePermission "*:*", "modify,rename";
+    permission com.ecyrd.jspwiki.auth.permissions.GroupPermission "*:*", "view";
+    permission com.ecyrd.jspwiki.auth.permissions.GroupPermission "*:*", "edit";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "createPages,createGroups";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "editPreferences";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "editProfile";
+    permission com.ecyrd.jspwiki.auth.permissions.WikiPermission "*", "login";
+};
+
+
+// Administrators (principals or roles possessing AllPermission) 
+// are allowed to delete any page, and can edit, rename and delete 
+// groups. You should match the permission target (here, 'JSPWiki') 
+// with the value of the 'jspwiki.applicationName' property in 
+// jspwiki.properties. Two administative groups are set up below:
+// the wiki group "Admin" (stored by default in wiki page GroupAdmin)
+// and the container role "Admin" (managed by the web container).
+
+grant signedBy "jspwiki",
+    principal com.ecyrd.jspwiki.auth.GroupPrincipal "Admin" {
+    permission com.ecyrd.jspwiki.auth.permissions.AllPermission "JSPWiki";
+};
+grant signedBy "jspwiki",
+    principal com.ecyrd.jspwiki.auth.authorize.Role "Admin" {
+    permission com.ecyrd.jspwiki.auth.permissions.AllPermission "JSPWiki";
+};

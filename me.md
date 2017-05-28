@@ -3,7 +3,7 @@ id: 5
 title: Claudio Miranda
 date: 2012-04-30T18:52:27+00:00
 author: Claudio Miranda
-layout: page
+layout: single
 guid: http://claudius.com.br/?page_id=5
 ---
 ![Claudio]({{ site.url }}/images/claudio_face2.jpg)

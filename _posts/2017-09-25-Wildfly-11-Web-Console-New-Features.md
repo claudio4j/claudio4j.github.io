@@ -142,6 +142,8 @@ There is a new view to monitor datasource pool statistics.
 
 It is possible to browse the content of deployments, this is useful when an user wants to navigate the contents of deployments and download its contents.
 
+Emmanuel Hugonnet [blogged a detailed view](http://wildfly.org/news/2017/09/08/Exploded-deployments/) about this feature.
+
 ![Browse deployments]({{ site.baseurl }}/images/20170925-browse_1.png "Browse deployments")
 <p><small>Browse deployments option</small></p>
 

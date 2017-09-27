@@ -4,4 +4,16 @@
 
 @charset "utf-8";
 
-@import "minimal-mistakes";
+$x-large: 1680px !default;
+
+figure {
+  display: inline-block !important;
+}
+
+figure img {
+  max-width: 100%;
+  width: auto !important;
+}
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials

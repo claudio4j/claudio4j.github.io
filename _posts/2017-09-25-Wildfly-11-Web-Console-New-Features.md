@@ -1,7 +1,6 @@
 ---
 title: 'Wildfly 11 - Web Console new features'
 author: Claudio Miranda
-layout: post
 permalink: /2017/09/wildfly-11-web-console-new-features
 tags:
   - wildfly
@@ -19,83 +18,66 @@ There is a new subsystem named Elytron, it replaces the picketbox security frame
 
 The elytron configuration is available for every profile, the entry point is the "Security - Elytron" item menu.
 
-![Web Console - Elytron Subsystem]({{ site.baseurl }}/images/20170925-elytron_1.png "Web Console - Elytron Subsystem")
-<p><small>The entry point for elytron configuration</small></p>
+{% include figure image_path="/images/20170925-elytron_1.png" alt="Web Console - Elytron Subsystem" caption="The entry point for elytron configuration" %}
 
 From there you may access the configurations for: Factories, Transformers, Mappers, Decoders, Security Realms, Authentication, Key Store, Credential Store, SSL Context, etc. Elytron is a new subsystem but it contains many resources to configure. See some screenshots.
 
-![Web Console - Elytron Subsystem]({{ site.baseurl }}/images/20170925-elytron_2.png "Web Console - Elytron Subsystem")
-<p><small>SSL Options - Key Store resource configuration</small></p>
+{% include figure image_path="/images/20170925-elytron_2.png" alt="Web Console - Elytron Subsystem" caption="SSL Options - Key Store resource configuration" %}
 
-![Web Console - Elytron Subsystem]({{ site.baseurl }}/images/20170925-elytron_3.png "Web Console - Elytron Subsystem")
-<p><small>Security Realm option - Properties Realm configuration</small></p>
 
-![Web Console - Elytron Subsystem]({{ site.baseurl }}/images/20170925-elytron_4.png "Web Console - Elytron Subsystem")
-<p><small>Permission Mapper option - Simple Permission Mapper configuration</small></p>
+{% include figure image_path="/images/20170925-elytron_3.png" caption="Security Realm option - Properties Realm configuration" %}
+
+{% include figure image_path="/images/20170925-elytron_4.png" caption="Permission Mapper option - Simple Permission Mapper configuration" %}
 
 There is also a runtime view to display the aliases for the credential store.
 
-![Web Console - Elytron Subsystem]({{ site.baseurl }}/images/20170925-elytron_5.png "Web Console - Elytron Subsystem")
-<p><small>Display aliases for credential stores</small></p>
+{% include figure image_path="/images/20170925-elytron_5.png" caption="Display aliases for credential stores" %}
 
 ## EJB Security Domain Mapping
 
 The EJB subsystem allows to configure mapping a security domain for a deployed application.
 
-![Web Console - EJB Application Security Domain Mapping]({{ site.baseurl }}/images/20170925-ejb_sec_domain.png "Web Console - EJB Application Security Domain Mapping")
-<p><small>EJB Application Security Domain Mapping</small></p>
+{% include figure image_path="/images/20170925-ejb_sec_domain.png" caption="EJB Application Security Domain Mapping" %}
 
 ## JMS Bridge in Messaging subsystem
 
 The Messaging subsystem in web console allows the user to manage JMS Bridges.
 
-![Web Console - Messaging - JMS Bridge]({{ site.baseurl }}/images/20170925-messaging_1.png "Web Console - Messaging - JMS Bridge")
-<p><small>Messaging - JMS Bridge</small></p>
+{% include figure image_path="/images/20170925-messaging_1.png" caption="Messaging - JMS Bridge" %}
 
-![Web Console - Messaging - JMS Bridge]({{ site.baseurl }}/images/20170925-messaging_2.png "Web Console - Messaging - JMS Bridge")
-<p><small>Messaging - Add a JMS Bridge</small></p>
+{% include figure image_path="/images/20170925-messaging_2.png" caption="Messaging - Add a JMS Bridge" %}
 
-![Web Console - Messaging - JMS Bridge]({{ site.baseurl }}/images/20170925-messaging_3.png "Web Console - Messaging - JMS Bridge")
-<p><small>Messaging - JMS Bridge resource</small></p>
+{% include figure image_path="/images/20170925-messaging_3.png" caption="Messaging - JMS Bridge resource" %}
 
 There is also a runtime view to monitor pool statistics for Pooled Connection Factory connections.
 
-![Web Console - Messaging Runtime - Pool statistics]({{ site.baseurl }}/images/20170925-messaging_4.png "Web Console - Messaging Runtime - Pool statistics")
-<p><small>Monitor pool statistics for Pooled Connection Factory connections</small></p>
+{% include figure image_path="/images/20170925-messaging_4.png" caption="Monitor pool statistics for Pooled Connection Factory connections" %}
 
-![Web Console - Messaging Runtime - Prepared Transactions]({{ site.baseurl }}/images/20170925-messaging_5.png "Web Console - Messaging Runtime - Prepared Transactions")
-<p><small>Monitor Prepared Transactions</small></p>
+{% include figure image_path="/images/20170925-messaging_5.png" caption="Monitor Prepared Transactions" %}
 
 ## Web Services - Client and Endpoint configuration
 
 User are allowed to configure Client and Endpoint configurations.
 
-![Web Console - Web Services Configuration]({{ site.baseurl }}/images/20170925-webservices_1.png "Web Console - Web Services Configuration")
-<p><small>Client and Endpoint Configuration</small></p>
+{% include figure image_path="/images/20170925-webservices_1.png" caption="Client and Endpoint Configuration" %}
 
 The Pre/Post Handler Chain is also allowed to configure.
 
-![Web Console - Web Services Configuration]({{ site.baseurl }}/images/20170925-webservices_2.png "Web Console - Web Services Configuration")
-<p><small>Pre/Post Handler Chain Configuration</small></p>
+{% include figure image_path="/images/20170925-webservices_2.png" caption="Pre/Post Handler Chain Configuration" %}
 
 ## Undertow
 
 Web Console users are allowed to configure undertow filters, application security domain mapping to deployed applications and map response header filter to hosts.
 
-![Undertow Filters]({{ site.baseurl }}/images/20170925-undertow_1.png "Undertow Filters")
-<p><small>Entrypoint for the Undertow Filters</small></p>
+{% include figure image_path="/images/20170925-undertow_1.png" caption="Entrypoint for the Undertow Filters" %}
 
-![Response header filter]({{ site.baseurl }}/images/20170925-undertow_2.png "Response header filter")
-<p><small>Response header filter</small></p>
+{% include figure image_path="/images/20170925-undertow_2.png" caption="Response header filter" %}
 
-![Undertow Application Security Domain]({{ site.baseurl }}/images/20170925-undertow_3.png "Undertow Application Security Domain")
-<p><small>Undertow Application Security Domain</small></p>
+{% include figure image_path="/images/20170925-undertow_3.png" caption="Undertow Application Security Domain" %}
 
-![Response header filters mapped to a host]({{ site.baseurl }}/images/20170925-undertow_4.png "Response header filters mapped to a host")
-<p><small>Response header filters mapped to a host</small></p>
+{% include figure image_path="/images/20170925-undertow_4.png" caption="Response header filters mapped to a host" %}
 
-![Map an undertow response header filter to a host]({{ site.baseurl }}/images/20170925-undertow_5.png "Map an undertow response header filter to a host")
-<p><small>Map an undertow response header filter to a host</small></p>
+{% include figure image_path="/images/20170925-undertow_5.png" caption="Map an undertow response header filter to a host" %}
 
 
 ## Runtime view - Hosts
@@ -106,37 +88,31 @@ The restart option calls the management command as `:shutdown(restart=true)`
 
 The reload option calls the management command as `:reload()`
 
-![Hosts options]({{ site.baseurl }}/images/20170925-host_1.png "Hosts options")
-<p><small>Reload and restart options to host controller</small></p>
+{% include figure image_path="/images/20170925-host_1.png" caption="Reload and restart options to host controller" %}
 
-![Reload host confirmation]({{ site.baseurl }}/images/20170925-host_2.png "Reload host confirmation")
-<p><small>Reload host confirmation</small></p>
+{% include figure image_path="/images/20170925-host_2.png" caption="Reload host confirmation" %}
 
 Also, there is a the configuration-changes log, to register all changes performed to a host controller. Users are allowed to enable/disable and monitor the configurations changes.
 
-![Configuration Changes]({{ site.baseurl }}/images/20170925-host_3.png "Configuration Changes")
-<p><small>Configuration Changes</small></p>
+{% include figure image_path="/images/20170925-host_3.png" caption="Configuration Changes" %}
 
 ## Runtime view - Server
 
-Previously, when the server was in a blocked state, not responding, users needed to kill the server with a kill command (from a command prompt). Wildfly already contains an operation `kill` to destroy a server process. Web console allows the user to invoke the `kill` operation on a server, it is named <p><small>Force shutdown</small></p>, see below the menu option.
+Previously, when the server was in a blocked state, not responding, users needed to kill the server with a kill command (from a command prompt). Wildfly already contains an operation `kill` to destroy a server process. Web console allows the user to invoke the `kill` operation on a server, it is named <p><small>Force shutdown" %}, see below the menu option.
 
-![Shutdown server]({{ site.baseurl }}/images/20170925-server_kill.png "Shutdown server")
-<p><small>Option to shutdown a server</small></p>
+{% include figure image_path="/images/20170925-server_kill.png" caption="Option to shutdown a server" %}
 
 ## Runtime view - Monitor Batch executions
 
 Application may package batch jobs and execute them in Wildfly application runtime. The batch subsystem allows to monitor them
 
-![Monitor batch executions]({{ site.baseurl }}/images/20170925-monitor_batch.png "Monitor batch executions")
-<p><small>Monitor batch executions</small></p>
+{% include figure image_path="/images/20170925-monitor_batch.png" caption="Monitor batch executions" %}
 
 ## Runtime view - Monitor datasource pool statistics
 
 There is a new view to monitor datasource pool statistics.
 
-![Monitor datasource pool statistics]({{ site.baseurl }}/images/20170925-monitor_ds_pool_stats.png "Monitor datasource pool statistics")
-<p><small>Monitor datasource pool statistics</small></p>
+{% include figure image_path="/images/20170925-monitor_ds_pool_stats.png" caption="Monitor datasource pool statistics" %}
 
 ## Browse deployment contents
 
@@ -144,13 +120,11 @@ It is possible to browse the content of deployments, this is useful when an user
 
 Emmanuel Hugonnet [blogged a detailed view](http://wildfly.org/news/2017/09/08/Exploded-deployments/) about this feature.
 
-![Browse deployments]({{ site.baseurl }}/images/20170925-browse_1.png "Browse deployments")
-<p><small>Browse deployments option</small></p>
+{% include figure image_path="/images/20170925-browse_1.png" caption="Browse deployments option" %}
 
 It shows the full path of each content item and its size.
 
-![Browse deployments]({{ site.baseurl }}/images/20170925-browse_2.png "Browse deployments")
-<p><small>Browse deployments</small></p>
+{% include figure image_path="/images/20170925-browse_2.png" caption="Browse deployments" %}
 
 
 

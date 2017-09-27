@@ -3,8 +3,6 @@ id: 324
 title: Resume
 date: 2013-12-08T21:35:37+00:00
 author: Claudio Miranda
-layout: page
-guid: https://secure255.hostgator.com/~claudius/?page_id=324
 ---
 # Claudio de Oliveira Miranda
 

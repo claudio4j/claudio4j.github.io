@@ -3,7 +3,6 @@ id: 461
 title: Mostrar tempo de uptime da JVM no wildfly web console
 date: 2014-09-25T00:09:55+00:00
 author: Claudio Miranda
-layout: post
 guid: https://secure3117.hostgator.com/~claudius/?p=461
 permalink: /2014/09/mostrar-tempo-de-uptime-da-jvm-no-wildfly-web-console/
 categories:

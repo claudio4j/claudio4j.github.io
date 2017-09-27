@@ -6,6 +6,9 @@
 
 $x-large: 1680px !default;
 
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
 figure {
   display: inline-block !important;
 }
@@ -15,5 +18,3 @@ figure img {
   width: auto !important;
 }
 
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials

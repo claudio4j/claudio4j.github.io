@@ -98,7 +98,7 @@ Also, there is a the configuration-changes log, to register all changes performe
 
 ## Runtime view - Server
 
-Previously, when the server was in a blocked state, not responding, users needed to kill the server with a kill command (from a command prompt). Wildfly already contains an operation `kill` to destroy a server process. Web console allows the user to invoke the `kill` operation on a server, it is named <p><small>Force shutdown" %}, see below the menu option.
+Previously, when the server was in a blocked state, not responding, users needed to kill the server with a kill command (from a command prompt). Wildfly already contains an operation `kill` to destroy a server process. Web console allows the user to invoke the `kill` operation on a server, it is named <strong>Force shutdown</strong>, see below the menu option.
 
 {% include figure image_path="/images/20170925-server_kill.png" caption="Option to shutdown a server" %}
 

@@ -12,7 +12,7 @@ categories:
 ---
 _I wrote the topic in Portuguese ([Qual thread do programa Java mais consome cpu](http://claudius.com.br/2012/05/qual-thread-do-programa-java-mais-consome-cpu/)), and decided to write it in English to help more people._
 
-I developed a script named [top_threads.sh](http://code.google.com/p/claudius-alphaworks/source/browse/trunk/shell_bin/top_threads.sh) to display all threads sorted by cpu usage of a java process.
+I developed a script named [top_threads.sh](https://github.com/claudio4j/scripts/blob/master/top_threads.sh) to display all threads sorted by cpu usage of a java process.
   
 This script is for linux and uses the command line utilities: top, jstack and sed.
 
